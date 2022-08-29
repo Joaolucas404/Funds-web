@@ -1,3 +1,4 @@
 # Landing Page
 Atividade feita usando apenas HTML5 e CSS3 
-![Dexter Amazon](https://user-images.githubusercontent.com/108549505/187258394-386cfac7-83a7-4918-bea5-ad474ca19bc4.PNG)
+![Dexter Amazon1](https://user-images.githubusercontent.com/108549505/187309677-b28bbac0-5599-49aa-9784-c0781473fa54.PNG)
+
