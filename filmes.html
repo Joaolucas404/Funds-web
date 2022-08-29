@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylepage.css">
+    <title>Amazon Prime - Filmes</title>
+</head>
+<body>
+    
+    <header>
+        <a href="index.html"><img src="img/amazon logo.png" alt="logo" class="logo"></a>
+        <nav class="navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="filmes.html">Filmes</a></li>
+                <li><a href="series.html">Séries</a></li>
+                <li><a href="infantis.html">Infantis</a></li>
+                <img src="img/search.png" alt="Pesquisa" class="search">
+                <img src="img/amazon profile.png" alt="amazon profile" class="perfil">
+            </ul>
+        </nav>
+    </header> 
+    <div class="slides">
+        <div class="slides">
+        <div id="back" class="btn">
+            <i class="fas fa-chevron-left"></i>
+        </div> 
+        <div id="next" class="btn">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+        
+        <div id="primary" class="imagens">
+            <img src="img/filme 1.PNG" alt="">
+        </div>
+        
+        <div id="second" class="imagens">
+            <img src="img/filmes 2.PNG" alt="">
+        </div>
+        
+            <div id="third" class="imagens">
+            <img src="img/filmes 3.PNG" alt="">
+        </div>
+        
+            <div id="four" class="imagens">
+            <img src="img/filme 4.PNG" alt="">
+        </div>
+    </div>
+    <div class="balls"></div>
+</div>
+</body>
+<script>
+    var balls = document.querySelector('.balls')
+    var quant = document.querySelectorAll('.slides .imagens')
+    var primary = 1
+    var imagens = document.getElementById('primary')
+    var next = document.getElementById('next')
+    var back = document.getElementById('back')
+
+    for(let i=0; i < quant.length; i++){
+        var div = document.createElement('div')
+        div.id = i
+        balls.appendChild(div)
+    }
+    document.getElementById('1').classList.add('imgAtual')
+
+    var pos = document.querySelectorAll('.balls div')
+
+    for(let i=0; i< pos.length; i++){
+        pos[i].addEventListener('click', ()=>{
+            primary= pos[i].id 
+            slide()
+        })
+    }
+    back.addEventListener('click', ()=>{
+        primary--
+        slide()
+    })
+    back.addEventListener('click', ()=>{
+        primary++
+        slide()
+    })
+    function slide(){
+        if(primary >= quant.length){
+            primary = 1
+        }
+    else if(primary < 1){
+        primary = quant.length-1
+    }
+    document.querySelector('.imgAtual').classList.remove('.imgAtual')
+    imagens.style.marginLeft = -1024*primary+'px'
+    document.getElementById(primary).classList.add('imgAtual')
+}  
+setInterval(()=>{
+    primary++
+    slide()
+},2000)
+</script>
+</html>
